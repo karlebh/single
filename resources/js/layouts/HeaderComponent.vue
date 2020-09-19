@@ -1,4 +1,4 @@
-<template>
+  <template>
 	<div class="shadow-lg mb-5">
 		<div class="py-8 px-10 bg-teal-600 text-white">
 			
@@ -67,7 +67,7 @@
 		</div>
 
 		<!-- Navigation links for guests on small screen -->
-		<div class="block md:hidden bg-teal-500 text-white">
+		<div class="trans block md:hidden bg-teal-500 text-white">
 			<div v-if="Guest()">
 				<nav v-if="isOpen" class="transition duration-500 ease" >
 					<router-link 
@@ -85,7 +85,7 @@
 			
 			<!-- Navigation links for users on small screen -->
 			<div v-if="Auth()">
-				<nav v-if="isOpen" class="transition duration-500 ease">
+				<nav v-if="isOpen" class="trans transition duration-500 ease">
 
 					<router-link 
 						:to="{name: 'music.index'}"
@@ -170,3 +170,9 @@
 		}
 	}
 </script>
+
+<style>
+	.trans {
+		transition: display 2s;
+	}
+</style>

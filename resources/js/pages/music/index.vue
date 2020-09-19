@@ -1,6 +1,7 @@
 <template>
 	<div class="m-5">
-
+		
+			<Loader :loading="loading"></Loader>
 		
 		<div 
 			v-if="deleteMessage" 
@@ -28,6 +29,7 @@
 					<router-link 
 					:to="{name: 'music.edit', params: {slug: music.slug} }" 
 					class="link bg-teal-600 hover:bg-teal-500"
+					style="border-radius: 4px 17px"
 					>
 						Edit
 					</router-link>
@@ -49,6 +51,8 @@
 
 	// import { mapActions, mapState } from 'vuex'
 
+	import Loader from '../../components/Loader.vue'
+
 	export default
 	{
 		data(){
@@ -57,6 +61,7 @@
 				artist: null,
 				deleteMessage: null,
 				color: null,
+				loading: true,
 			}
 		},
 
@@ -88,16 +93,21 @@
 					.get('/api/music')
 					.then(response => {
 						this.musics = response.data
+						this.loading = false
 					})
 			},
 
 			Hide(){
 				document.querySelector('#hide').style.display = 'none'
-				document.querySelector('#hide').style.transition = 'opacity 0'
+				document.querySelector('#hide').style.transition = 'opacity 2s'
 			},
 
 			
 
+		},
+
+		components: {
+			Loader,
 		}
 	}
 

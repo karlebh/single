@@ -1,12 +1,10 @@
 <template>
-	<div>
-		<p>
-			If you are seeing this, it means you're logged in
+	<div class="p-3">
+		<section class="text-teal-500">
+			Hello and welcome to single!
 
-			<button @click.prevent="Logout" class="py-1 px-2 text-white font-semibold bg-teal-600">
-				Logout
-			</button>
-		</p>
+			Single is a single page application built with Laravel and Vue.js!
+		</section>
 	</div>
 </template>
 
